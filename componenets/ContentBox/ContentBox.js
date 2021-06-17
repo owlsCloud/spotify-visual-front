@@ -1,8 +1,12 @@
 const ContentBox = ({ data }) => {
   return (
-    <div>
-      <img src={data.images[2]} alt="" />
-      <p>{data.name}</p>
+    <div className="contentbox">
+      <img
+        src={data.album ? data.album.images[2].url : data.images[2].url}
+        alt=""
+        className="contentbox__image"
+      />
+      <p className="contentbox__name">{data.name}</p>
     </div>
   );
 };
