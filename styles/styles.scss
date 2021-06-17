@@ -1,6 +1,7 @@
 @use 'reset';
 @use '../componenets/Login/login';
-@use '../componenets/Dashboard/dashbaord';
+@use '../componenets/Dashboard/dashboard';
+@use '../componenets/ContentBox/contentbox';
 html,
 body {
   background-color: #181818;
