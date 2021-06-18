@@ -8,5 +8,11 @@
     margin-right: 15px;
   }
   &__name {
+    text-align: left;
+    margin-right: 1rem;
+  }
+  &__time {
+    text-align: right;
+    color: #8f8f8f;
   }
 }

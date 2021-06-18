@@ -10,22 +10,22 @@ const Dashboard = ({ code }) => {
   const [user, setUser] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
+  const [userCurrentlyPlayed, setUserCurrentlyPlayed] = useState([]);
   const accessToken = useAuth(code);
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
     spotifyApi.getMe().then((res) => {
       setUser(res.body);
-      console.log(res.body);
     });
-    spotifyApi.getMyTopArtists().then((res) => {
+    spotifyApi.getMyTopArtists({ limit: 10 }).then((res) => {
       setUserTopArtists(res.body.items);
-      console.log(res.body.items);
     });
-    spotifyApi.getMyTopTracks().then((res) => {
+    spotifyApi.getMyTopTracks({ limit: 10 }).then((res) => {
       setUserTopTracks(res.body.items);
-      console.log(res.body.items);
+      console.log(res.body.items[0]);
     });
+    spotifyApi.getMyRecentlyPlayedTracks().then((res) => {});
   }, [accessToken]);
 
   return (
@@ -35,19 +35,24 @@ const Dashboard = ({ code }) => {
         src={user.images ? user.images[0].url : ""}
         alt=""
       />
-      <h2>Welcome to your Dashboard {user.display_name}</h2>
+      <h2>{user.display_name}</h2>
+      <div className="dashboard__user-stats"></div>
       <div className="dashboard__content">
-        <div className="dashboard__content-topArtists">
-          <h4>Your Top Artist</h4>
-          {userTopArtists.map((artist, i) => {
-            return <ContentBox key={i} data={artist} />;
-          })}
+        <div className="dashboard__content-left">
+          <h4>Your Top 10 Artist</h4>
+          <div className="dashboard__content-topArtists">
+            {userTopArtists.map((artist, i) => {
+              return <ContentBox key={i} data={artist} />;
+            })}
+          </div>
         </div>
-        <div className="dashboard__content-topTracks">
-          <h4>Your Top Tracks</h4>
-          {userTopTracks.map((artist, i) => {
-            return <ContentBox key={i} data={artist} />;
-          })}
+        <div className="dashboard__content-right">
+          <h4>Your Top 10 Tracks</h4>
+          <div className="dashboard__content-topTracks">
+            {userTopTracks.map((track, i) => {
+              return <ContentBox key={i} data={track} />;
+            })}
+          </div>
         </div>
       </div>
     </section>
