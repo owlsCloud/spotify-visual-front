@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: #8f8f8f;
+}
+
+i {
+  color: #8f8f8f;
+  margin-bottom: 5px;
+}
+li {
+  margin-bottom: 2rem;
+}

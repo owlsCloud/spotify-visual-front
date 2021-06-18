@@ -3,6 +3,7 @@ import useAuth from "../useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import ContentBox from "../ContentBox/ContentBox";
 import { placeholder } from "../../public/placeholder.png";
+import SideBar from "../SideBar/SideBar";
 const spotifyApi = new SpotifyWebApi({
   clientId: "49681fb2bb5b43d1aed58f27f340a01b",
 });
@@ -39,6 +40,7 @@ const Dashboard = ({ code }) => {
 
   return (
     <section className="dashboard">
+      <SideBar />
       <img
         className="profileImg"
         src={user.images ? user.images[0].url : ""}

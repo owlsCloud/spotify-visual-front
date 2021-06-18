@@ -10,7 +10,7 @@ export default function useAuth(code) {
   const LOCAL_SERVER = "http://localhost:3001/";
   useEffect(() => {
     axios
-      .post(BUILD_SERVER + "login", {
+      .post(LOCAL_SERVER + "login", {
         code,
       })
       .then((res) => {
@@ -29,7 +29,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(BUILD_SERVER + "refresh", {
+        .post(LOCAL_SERVER + "refresh", {
           refreshToken,
         })
         .then((res) => {
