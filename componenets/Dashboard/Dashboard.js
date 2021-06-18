@@ -11,21 +11,30 @@ const Dashboard = ({ code }) => {
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userCurrentlyPlayed, setUserCurrentlyPlayed] = useState([]);
+  const [userFollowed, setUserFollowed] = useState([]);
+  const [userPlaylists, setUserPlaylists] = useState([]);
   const accessToken = useAuth(code);
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
     spotifyApi.getMe().then((res) => {
       setUser(res.body);
+      console.log(res.body);
     });
     spotifyApi.getMyTopArtists({ limit: 10 }).then((res) => {
       setUserTopArtists(res.body.items);
     });
     spotifyApi.getMyTopTracks({ limit: 10 }).then((res) => {
       setUserTopTracks(res.body.items);
-      console.log(res.body.items[0]);
     });
-    spotifyApi.getMyRecentlyPlayedTracks().then((res) => {});
+    spotifyApi.getFollowedArtists().then((res) => {
+      setUserFollowed(res.body.artists);
+      console.log(res.body);
+    });
+    spotifyApi.getUserPlaylists(user.display_name).then((res) => {
+      setUserPlaylists(res.body);
+      console.log(res.body);
+    });
   }, [accessToken]);
 
   return (
@@ -36,7 +45,22 @@ const Dashboard = ({ code }) => {
         alt=""
       />
       <h2>{user.display_name}</h2>
-      <div className="dashboard__user-stats"></div>
+      <div className="dashboard__user-stats">
+        <div className="dashboard__user-statbox">
+          <p style={{ color: "#1ece5c" }}>
+            {user.followers ? user.followers.total : 0}
+          </p>
+          <p style={{ color: "#8f8f8f" }}>Followers</p>
+        </div>
+        <div className="dashboard__user-statbox">
+          <p style={{ color: "#1ece5c" }}>{userFollowed.total} </p>
+          <p style={{ color: "#8f8f8f" }}>Following</p>
+        </div>
+        <div className="dashboard__user-statbox">
+          <p style={{ color: "#1ece5c" }}> {userPlaylists.total} </p>
+          <p style={{ color: "#8f8f8f" }}>Playlists</p>
+        </div>
+      </div>
       <div className="dashboard__content">
         <div className="dashboard__content-left">
           <h4>Your Top 10 Artist</h4>

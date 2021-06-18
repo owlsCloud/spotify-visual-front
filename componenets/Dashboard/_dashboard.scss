@@ -5,7 +5,15 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
+  &__user-stats {
+    display: flex;
+    margin: 2rem 0;
+  }
+  &__user-statbox {
+    text-align: center;
+    margin: 0 10px;
+    font-size: 1.3rem;
+  }
   &__content {
     display: flex;
     align-items: center;
