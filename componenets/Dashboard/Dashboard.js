@@ -3,11 +3,12 @@ import useAuth from "../useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import ContentBox from "../ContentBox/ContentBox";
 import { placeholder } from "../../public/placeholder.png";
+import ls from "local-storage";
 import SideBar from "../SideBar/SideBar";
 const spotifyApi = new SpotifyWebApi({
   clientId: "49681fb2bb5b43d1aed58f27f340a01b",
 });
-const Dashboard = ({ code }) => {
+const Dashboard = ({ code, state }) => {
   const [user, setUser] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
@@ -15,12 +16,13 @@ const Dashboard = ({ code }) => {
   const [userFollowed, setUserFollowed] = useState([]);
   const [userPlaylists, setUserPlaylists] = useState([]);
   const accessToken = useAuth(code);
+  ls.set("loggedIn", true);
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
     spotifyApi.getMe().then((res) => {
       setUser(res.body);
-      console.log(res.body);
+      console.log(state);
     });
     spotifyApi.getMyTopArtists({ limit: 10 }).then((res) => {
       setUserTopArtists(res.body.items);
@@ -30,11 +32,9 @@ const Dashboard = ({ code }) => {
     });
     spotifyApi.getFollowedArtists().then((res) => {
       setUserFollowed(res.body.artists);
-      console.log(res.body);
     });
     spotifyApi.getUserPlaylists(user.display_name).then((res) => {
       setUserPlaylists(res.body);
-      console.log(res.body);
     });
   }, [accessToken]);
 
