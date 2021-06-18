@@ -29,7 +29,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(C, {
+        .post(BUILD_SERVER + "refresh", {
           refreshToken,
         })
         .then((res) => {
