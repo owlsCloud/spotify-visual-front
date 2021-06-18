@@ -6,9 +6,11 @@ export default function useAuth(code) {
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
+  const BUILD_SERVER = "https://spotifyvis.herokuapp.com/";
+  const LOCAL_SERVER = "http://localhost:3001";
   useEffect(() => {
     axios
-      .post("http://localhost:3001/login", {
+      .post(BUILD_SERVER + "login", {
         code,
       })
       .then((res) => {
@@ -27,7 +29,7 @@ export default function useAuth(code) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post("http://localhost:3001/refresh", {
+        .post(C, {
           refreshToken,
         })
         .then((res) => {
