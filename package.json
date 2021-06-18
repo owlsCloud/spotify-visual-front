@@ -2,6 +2,7 @@
   "name": "spotify-visual",
   "version": "0.1.0",
   "private": true,
+  "export": "next build && next export",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
