@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
-import useAuth from "../useAuth";
+import { useRouter } from "next/router";
+import useAuth from "../componenets/useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
-import ContentBox from "../ContentBox/ContentBox";
-import { placeholder } from "../../public/placeholder.png";
+import ContentBox from "../componenets/ContentBox/ContentBox";
 import ls from "local-storage";
-import SideBar from "../SideBar/SideBar";
+import SideBar from "../componenets/SideBar/SideBar";
 const spotifyApi = new SpotifyWebApi({
   clientId: "49681fb2bb5b43d1aed58f27f340a01b",
 });
-const Dashboard = ({ code, state }) => {
+const Dashboard = () => {
+  const { query } = useRouter();
   const [user, setUser] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userCurrentlyPlayed, setUserCurrentlyPlayed] = useState([]);
   const [userFollowed, setUserFollowed] = useState([]);
   const [userPlaylists, setUserPlaylists] = useState([]);
-  const accessToken = useAuth(code);
-  ls.set("loggedIn", true);
+  const accessToken = useAuth(query.code);
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
     spotifyApi.getMe().then((res) => {
       setUser(res.body);
-      console.log(state);
     });
     spotifyApi.getMyTopArtists({ limit: 10 }).then((res) => {
       setUserTopArtists(res.body.items);
@@ -55,11 +54,15 @@ const Dashboard = ({ code, state }) => {
           <p style={{ color: "#8f8f8f" }}>Followers</p>
         </div>
         <div className="dashboard__user-statbox">
-          <p style={{ color: "#1ece5c" }}>{userFollowed.total} </p>
+          <p style={{ color: "#1ece5c" }}>
+            {userFollowed.total ? userFollowed.total : 0}
+          </p>
           <p style={{ color: "#8f8f8f" }}>Following</p>
         </div>
         <div className="dashboard__user-statbox">
-          <p style={{ color: "#1ece5c" }}> {userPlaylists.total} </p>
+          <p style={{ color: "#1ece5c" }}>
+            {userPlaylists.total ? userPlaylists.total : 0}{" "}
+          </p>
           <p style={{ color: "#8f8f8f" }}>Playlists</p>
         </div>
       </div>

@@ -18,10 +18,10 @@ export default function useAuth(code) {
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
 
-        window.history.pushState({}, null, "/");
+        window.history.pushState({}, null, "/dashboard");
       })
       .catch(() => {
-        window.location = "/";
+        //window.location = "/";
       });
   }, [code]);
 

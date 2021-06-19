@@ -1,13 +1,17 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
 const SideBar = () => {
   const { pathname } = useRouter();
+
   return (
     <nav className="navbar">
       <div></div>
       <ul>
-        <li className={`navBox ${pathname === "/" ? "navBox--active" : ""}`}>
-          <a href="/" className="navBox__link">
+        <li
+          className={`navBox ${
+            pathname === "/dashboard" ? "navBox--active" : ""
+          }`}
+        >
+          <a href="/dashboard" className="navBox__link">
             <i className="fas fa-user fa-2x" />
             <p>Profile</p>
           </a>
