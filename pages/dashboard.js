@@ -43,32 +43,34 @@ const Dashboard = () => {
   return (
     <section className="dashboard">
       <SideBar />
-      <Image
-        className="profileImg"
-        src={user.images ? user.images[0].url : placeholder}
-        width="150px"
-        height="150px"
-        alt=""
-      />
-      <h2>{user.display_name}</h2>
-      <div className="dashboard__user-stats">
-        <div className="dashboard__user-statbox">
-          <p style={{ color: "#1ece5c" }}>
-            {user.followers ? user.followers.total : 0}
-          </p>
-          <p style={{ color: "#8f8f8f" }}>Followers</p>
-        </div>
-        <div className="dashboard__user-statbox">
-          <p style={{ color: "#1ece5c" }}>
-            {userFollowed.total ? userFollowed.total : 0}
-          </p>
-          <p style={{ color: "#8f8f8f" }}>Following</p>
-        </div>
-        <div className="dashboard__user-statbox">
-          <p style={{ color: "#1ece5c" }}>
-            {userPlaylists.total ? userPlaylists.total : 0}{" "}
-          </p>
-          <p style={{ color: "#8f8f8f" }}>Playlists</p>
+      <div className="dashboard__header">
+        <Image
+          className="profileImg"
+          src={user.images ? user.images[0].url : placeholder}
+          width="150px"
+          height="150px"
+          alt=""
+        />
+        <h2>{user.display_name}</h2>
+        <div className="dashboard__user-stats">
+          <div className="dashboard__user-statbox">
+            <p style={{ color: "#1ece5c" }}>
+              {user.followers ? user.followers.total : 0}
+            </p>
+            <p style={{ color: "#8f8f8f" }}>Followers</p>
+          </div>
+          <div className="dashboard__user-statbox">
+            <p style={{ color: "#1ece5c" }}>
+              {userFollowed.total ? userFollowed.total : 0}
+            </p>
+            <p style={{ color: "#8f8f8f" }}>Following</p>
+          </div>
+          <div className="dashboard__user-statbox">
+            <p style={{ color: "#1ece5c" }}>
+              {userPlaylists.total ? userPlaylists.total : 0}{" "}
+            </p>
+            <p style={{ color: "#8f8f8f" }}>Playlists</p>
+          </div>
         </div>
       </div>
       <div className="dashboard__content">

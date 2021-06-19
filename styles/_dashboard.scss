@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  &__header {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
   &__user-stats {
     display: flex;
     margin: 2rem 0;
@@ -24,16 +28,10 @@
     text-align: center;
     margin-top: 20px;
   }
-  &__content-topArtists {
-    width: 400px;
-    margin: 0 20px;
-    height: 600px;
-    overflow-y: scroll;
-  }
-
+  &__content-topArtists,
   &__content-topTracks {
-    margin: 0 20px;
     width: 400px;
+    margin: 0 20px;
     height: 600px;
     overflow-y: scroll;
   }
@@ -65,4 +63,20 @@ h4 {
 ::-webkit-scrollbar-thumb {
   background: white;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .dashboard {
+    width: 100vw;
+    &__content {
+      display: block;
+    }
+
+    &__user-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+  }
 }

@@ -36,3 +36,31 @@ i {
     }
   }
 }
+@media only screen and (max-width: 600px) {
+  .navbar {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    min-height: 70px;
+    flex-direction: row;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    -webkit-box-pack: center;
+    justify-content: center;
+  }
+  .navBox {
+    margin: 0;
+    flex-grow: 1;
+    flex-basis: 100%;
+    &--active {
+      border-left: none;
+      padding: 0.5rem;
+      border-top: 3px solid #1ece5c;
+      background-color: #181818;
+    }
+  }
+}
