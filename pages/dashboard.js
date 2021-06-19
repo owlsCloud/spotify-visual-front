@@ -5,6 +5,7 @@ import SpotifyWebApi from "spotify-web-api-node";
 import ContentBox from "../componenets/ContentBox/ContentBox";
 import Image from "next/image";
 import ls from "local-storage";
+import placeholder from "../public/placeholder.png";
 import SideBar from "../componenets/SideBar/SideBar";
 const spotifyApi = new SpotifyWebApi({
   clientId: "49681fb2bb5b43d1aed58f27f340a01b",
@@ -23,6 +24,7 @@ const Dashboard = () => {
     spotifyApi.setAccessToken(accessToken);
     spotifyApi.getMe().then((res) => {
       setUser(res.body);
+      console.log(res.body);
     });
     spotifyApi.getMyTopArtists({ limit: 10 }).then((res) => {
       setUserTopArtists(res.body.items);
@@ -43,7 +45,9 @@ const Dashboard = () => {
       <SideBar />
       <Image
         className="profileImg"
-        src={user.images ? user.images[0].url : ""}
+        src={user.images ? user.images[0].url : placeholder}
+        width="150px"
+        height="150px"
         alt=""
       />
       <h2>{user.display_name}</h2>
