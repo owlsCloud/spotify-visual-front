@@ -11,15 +11,28 @@
   width: 100px;
   text-align: center;
 }
-a {
-  text-decoration: none;
-  color: #8f8f8f;
+ul {
+  width: 100%;
 }
-
 i {
-  color: #8f8f8f;
+  color: #474747;
   margin-bottom: 5px;
 }
-li {
+.navBox {
   margin-bottom: 2rem;
+  color: #474747;
+  &__link {
+    text-decoration: none;
+    color: #474747;
+  }
+  &--active {
+    border-left: 3px solid #1ece5c;
+    color: #8f8f8f;
+    i {
+      color: #8f8f8f;
+    }
+    p {
+      color: #8f8f8f;
+    }
+  }
 }
