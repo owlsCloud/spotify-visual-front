@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import useAuth from "../componenets/useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import ContentBox from "../componenets/ContentBox/ContentBox";
+import Image from "next/image";
 import ls from "local-storage";
 import SideBar from "../componenets/SideBar/SideBar";
 const spotifyApi = new SpotifyWebApi({
@@ -40,7 +41,7 @@ const Dashboard = () => {
   return (
     <section className="dashboard">
       <SideBar />
-      <img
+      <Image
         className="profileImg"
         src={user.images ? user.images[0].url : ""}
         alt=""
