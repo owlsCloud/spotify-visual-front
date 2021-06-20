@@ -1,8 +1,6 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import useAuth from "../componenets/useAuth";
-import SpotifyWebApi from "spotify-web-api-node";
 import ContentBox from "../componenets/ContentBox/ContentBox";
 import Image from "next/image";
 import placeholder from "../public/placeholder.png";

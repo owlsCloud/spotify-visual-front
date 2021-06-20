@@ -17,6 +17,7 @@ ul {
 i {
   color: #474747;
   margin-bottom: 5px;
+  width: 100%;
 }
 .navBox {
   margin-bottom: 2rem;
@@ -25,7 +26,8 @@ i {
     text-decoration: none;
     color: #474747;
   }
-  &--active {
+  &--active,
+  &:hover {
     border-left: 3px solid #17a24a;
     color: #8f8f8f;
     i {

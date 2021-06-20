@@ -1,11 +1,16 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 const SideBar = () => {
   const { pathname } = useRouter();
 
   return (
     <nav className="navbar">
       <div className="logo hideMobile">
-        <i className="fab fa-spotify fa-3x" style={{ color: "#17A24A" }} />
+        <Link href="/dashboard">
+          <a>
+            <i className="fab fa-spotify fa-3x" style={{ color: "#17A24A" }} />
+          </a>
+        </Link>
       </div>
       <ul>
         <li
@@ -13,10 +18,12 @@ const SideBar = () => {
             pathname === "/dashboard" ? "navBox--active" : ""
           }`}
         >
-          <a href="/dashboard" className="navBox__link">
-            <i className="fas fa-user fa-2x" />
-            <p>Profile</p>
-          </a>
+          <Link href="/dashboard">
+            <a className="navBox__link">
+              <i className="fas fa-user fa-2x" />
+              <p>Profile</p>
+            </a>
+          </Link>
         </li>
 
         <li
@@ -24,38 +31,46 @@ const SideBar = () => {
             pathname === "/artists" ? "navBox--active" : ""
           }`}
         >
-          <a href="/artists" className="navBox__link">
-            <i className="fas fa-guitar fa-2x" />
-            <p>Top Artist</p>
-          </a>
+          <Link href="/artists">
+            <a className="navBox__link">
+              <i className="fas fa-guitar fa-2x" />
+              <p>Top Artist</p>
+            </a>
+          </Link>
         </li>
         <li
           className={`navBox ${
             pathname === "/toptracks" ? "navBox--active" : ""
           }`}
         >
-          <a href="/toptracks" className="navBox__link">
-            <i className="fas fa-music fa-2x" />
-            <p>Top Tracks</p>
-          </a>
+          <Link href="/toptracks">
+            <a className="navBox__link">
+              <i className="fas fa-music fa-2x" />
+              <p>Top Tracks</p>
+            </a>
+          </Link>
         </li>
         <li
           className={`navBox ${pathname === "/recent" ? "navBox--active" : ""}`}
         >
-          <a href="/recent" className="navBox__link">
-            <i className="fas fa-play fa-2x" />
-            <p>Recent</p>
-          </a>
+          <Link href="/recent">
+            <a className="navBox__link">
+              <i className="fas fa-play fa-2x" />
+              <p>Recent</p>
+            </a>
+          </Link>
         </li>
         <li
           className={`navBox ${
             pathname === "/playlists" ? "navBox--active" : ""
           }`}
         >
-          <a href="/playlists" className="navBox__link">
-            <i className="fas fa-headphones fa-2x" />
-            <p>Playlists</p>
-          </a>
+          <Link href="/playlists">
+            <a className="navBox__link">
+              <i className="fas fa-headphones fa-2x" />
+              <p>Playlists</p>
+            </a>
+          </Link>
         </li>
       </ul>
       <div className=" logo hideMobile">
