@@ -26,7 +26,7 @@ i {
     color: #474747;
   }
   &--active {
-    border-left: 3px solid #1ece5c;
+    border-left: 3px solid #17a24a;
     color: #8f8f8f;
     i {
       color: #8f8f8f;
@@ -36,6 +36,11 @@ i {
     }
   }
 }
+.logo {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .navbar {
     top: auto;
@@ -62,5 +67,8 @@ i {
       border-top: 3px solid #1ece5c;
       background-color: #181818;
     }
+  }
+  .hideMobile {
+    display: none;
   }
 }

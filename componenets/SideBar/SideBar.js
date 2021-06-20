@@ -4,7 +4,9 @@ const SideBar = () => {
 
   return (
     <nav className="navbar">
-      <div></div>
+      <div className="logo hideMobile">
+        <i className="fab fa-spotify fa-3x" style={{ color: "#17A24A" }} />
+      </div>
       <ul>
         <li
           className={`navBox ${
@@ -56,7 +58,11 @@ const SideBar = () => {
           </a>
         </li>
       </ul>
-      <div></div>
+      <div className=" logo hideMobile">
+        <a href="https://github.com/owlsCloud/spotify-visual-front">
+          <i className="fab fa-github fa-3x " />
+        </a>
+      </div>
     </nav>
   );
 };
