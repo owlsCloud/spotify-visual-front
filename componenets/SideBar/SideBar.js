@@ -74,7 +74,10 @@ const SideBar = () => {
         </li>
       </ul>
       <div className=" logo hideMobile">
-        <a href="https://github.com/owlsCloud/spotify-visual-front">
+        <a
+          href="https://github.com/owlsCloud/spotify-visual-front"
+          target="_blank"
+        >
           <i className="fab fa-github fa-3x " />
         </a>
       </div>

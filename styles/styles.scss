@@ -1,8 +1,10 @@
 @use 'reset';
 @use 'dashboard';
+@use 'artists';
 @use '../componenets/Login/login';
 @use '../componenets/ContentBox/contentbox';
 @use '../componenets/SideBar/sidebar';
+@use '../componenets/ArtistBox/artistbox';
 html,
 body {
   background-color: #181818;
