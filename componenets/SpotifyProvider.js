@@ -24,6 +24,7 @@ export function SpotifyProvider({ children }) {
   const [userTop50Artists, setUserTop50Artists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userTop50Tracks, setUserTop50Tracks] = useState([]);
+  const [userRecentlyPlayedTracks, setUserRecentlyPlayedTracks] = useState([]);
   const login = (code) => {
     axios
       .post(BUILD_SERVER + "login", {
@@ -86,6 +87,10 @@ export function SpotifyProvider({ children }) {
     spotifyApi.getUserPlaylists(user.display_name).then((res) => {
       setUserPlaylists(res.body);
     });
+    spotifyApi.getMyRecentlyPlayedTracks({ limit: 50 }).then((res) => {
+      setUserRecentlyPlayedTracks(res.body.items);
+      console.log(res.body.items);
+    });
   }, [accessToken]);
 
   return (
@@ -100,6 +105,7 @@ export function SpotifyProvider({ children }) {
         userTopTracks,
         userTop50Artists,
         userTop50Tracks,
+        userRecentlyPlayedTracks,
       }}
     >
       {children}
