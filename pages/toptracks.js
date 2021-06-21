@@ -3,7 +3,6 @@ import ContentBox from "../componenets/ContentBox/ContentBox";
 import SideBar from "../componenets/SideBar/SideBar";
 const TopTracks = () => {
   const globalState = useStateContext();
-  console.log(globalState.userTop50Tracks);
   return (
     <section>
       <SideBar />

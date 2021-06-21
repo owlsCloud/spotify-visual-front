@@ -89,7 +89,6 @@ export function SpotifyProvider({ children }) {
     });
     spotifyApi.getMyRecentlyPlayedTracks({ limit: 50 }).then((res) => {
       setUserRecentlyPlayedTracks(res.body.items);
-      console.log(res.body.items);
     });
   }, [accessToken]);
 
