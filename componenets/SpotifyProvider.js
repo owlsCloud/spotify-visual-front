@@ -23,6 +23,7 @@ export function SpotifyProvider({ children }) {
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [userTop50Artists, setUserTop50Artists] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
+  const [userTop50Tracks, setUserTop50Tracks] = useState([]);
   const login = (code) => {
     axios
       .post(BUILD_SERVER + "login", {
@@ -76,6 +77,9 @@ export function SpotifyProvider({ children }) {
     spotifyApi.getMyTopTracks({ limit: 10 }).then((res) => {
       setUserTopTracks(res.body.items);
     });
+    spotifyApi.getMyTopTracks({ limit: 50 }).then((res) => {
+      setUserTop50Tracks(res.body.items);
+    });
     spotifyApi.getFollowedArtists().then((res) => {
       setUserFollowed(res.body.artists);
     });
@@ -95,6 +99,7 @@ export function SpotifyProvider({ children }) {
         userTopArtists,
         userTopTracks,
         userTop50Artists,
+        userTop50Tracks,
       }}
     >
       {children}

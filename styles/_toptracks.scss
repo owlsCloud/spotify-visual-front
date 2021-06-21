@@ -1,0 +1,14 @@
+.toptracks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 2rem;
+  &__header {
+    font-size: 24px;
+  }
+  &__display {
+    width: 60%;
+  }
+}

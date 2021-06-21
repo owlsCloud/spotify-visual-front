@@ -2,6 +2,7 @@
   display: flex;
   margin-bottom: 10px;
   margin-top: 20px;
+
   &__image {
     height: 60px;
     width: 60px;
@@ -11,10 +12,17 @@
   &__name {
     text-align: left;
     margin-right: 1rem;
+    margin-top: 0.8rem;
   }
   &__time {
+    margin-top: 1rem;
     text-align: right;
     color: #8f8f8f;
+  }
+  &__trackdetails {
+    margin-top: 0.5rem;
+    color: #8f8f8f;
+    text-overflow: ellipsis;
   }
 }
 @media only screen and (max-width: 600px) {
