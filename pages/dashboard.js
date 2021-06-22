@@ -1,11 +1,9 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import ContentBox from "../componenets/ContentBox/ContentBox";
-import Image from "next/image";
-import placeholder from "../public/placeholder.png";
 import SideBar from "../componenets/SideBar/SideBar";
-
+import DashHeader from "../componenets/DashHeader";
 const Dashboard = () => {
   const globalState = useStateContext();
   const { query } = useRouter();
@@ -17,18 +15,7 @@ const Dashboard = () => {
     <section className="dashboard">
       <SideBar />
       <div className="dashboard__header">
-        <Image
-          className="profileImg"
-          src={
-            globalState.user.images
-              ? globalState.user.images[0].url
-              : placeholder
-          }
-          width="150px"
-          height="150px"
-          alt=""
-        />
-        <h2>{globalState.user.display_name}</h2>
+        <DashHeader />
         <div className="dashboard__user-stats">
           <div className="dashboard__user-statbox">
             <p style={{ color: "#1ece5c" }}>

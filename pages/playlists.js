@@ -13,18 +13,7 @@ const Playlists = () => {
         <div className="playlist__display">
           {globalState.userPlaylists.items
             ? globalState.userPlaylists.items.map((playlist, i) => {
-                return (
-                  <PlaylistBox key={i} data={playlist} />
-                  // <div className="playlist" key={i}>
-                  //   <Image
-                  //     src={playlist.images[0].url}
-                  //     width="150px"
-                  //     height="150px"
-                  //     alt=""
-                  //   />
-                  //   <div className="playlist__name">{playlist.name}</div>
-                  // </div>
-                );
+                return <PlaylistBox key={i} data={playlist} />;
               })
             : ""}
         </div>
