@@ -46,7 +46,7 @@ export function SpotifyProvider({ children }) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(LOCAL_SERVER + "refresh", {
+        .post(BUILD_SERVER + "refresh", {
           refreshToken,
         })
         .then((res) => {
