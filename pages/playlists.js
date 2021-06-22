@@ -1,7 +1,7 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
 import SideBar from "../componenets/SideBar/SideBar";
 import PlaylistBox from "../componenets/PlaylistBox";
-const Playlist = () => {
+const Playlists = () => {
   const globalState = useStateContext();
   console.log(globalState.userPlaylists.items);
   return (
@@ -18,4 +18,4 @@ const Playlist = () => {
     </section>
   );
 };
-export default Playlist;
+export default Playlists;
