@@ -16,12 +16,12 @@ const Playlists = () => {
                 return (
                   <div className="playlist" key={i}>
                     <Image
-                      src={data.images[0].url}
+                      src={playlist.images[0].url}
                       width="150px"
                       height="150px"
                       alt=""
                     />
-                    <div className="playlist__name">{data.name}</div>
+                    <div className="playlist__name">{playlist.name}</div>
                   </div>
                 );
               })

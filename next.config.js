@@ -2,6 +2,6 @@ module.exports = {
   reactStrictMode: true,
   target: "serverless",
   images: {
-    domains: ["i.scdn.co"],
+    domains: ["i.scdn.co", "mosaic.scdn.co"],
   },
 };
