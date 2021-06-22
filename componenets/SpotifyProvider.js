@@ -27,7 +27,7 @@ export function SpotifyProvider({ children }) {
   const [userRecentlyPlayedTracks, setUserRecentlyPlayedTracks] = useState([]);
   const login = (code) => {
     axios
-      .post(LOCAL_SERVER + "login", {
+      .post(BUILD_SERVER + "login", {
         code,
       })
       .then((res) => {
