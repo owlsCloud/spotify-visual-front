@@ -1,8 +1,8 @@
-const PlaylistBox = ({ playlist }) => {
+const PlaylistBox = ({ data }) => {
   return (
     <div className="playlist">
-      <img src={playlist.images[0].url} />
-      <div className="playlist__name">{playlist.name}</div>
+      <img src={data.images[0].url} />
+      <div className="playlist__name">{data.name}</div>
     </div>
   );
 };
