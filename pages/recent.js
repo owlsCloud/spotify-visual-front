@@ -1,7 +1,7 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
 import ContentBox from "../componenets/ContentBox/ContentBox";
 import SideBar from "../componenets/SideBar/SideBar";
-const TopTracks = () => {
+const RecentTracks = () => {
   const globalState = useStateContext();
   return (
     <section>
@@ -17,4 +17,4 @@ const TopTracks = () => {
     </section>
   );
 };
-export default TopTracks;
+export default RecentTracks;
