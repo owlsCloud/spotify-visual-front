@@ -11,7 +11,12 @@ const Playlists = () => {
         <div className="toptracks__header"> Your Playlists</div>
         <div className="playlist__display">
           {globalState.userPlaylists.items.map((playlist, i) => {
-            return <PlaylistBox key={i} data={playlist} />;
+            return (
+              <div className="playlist">
+                <img src={data.images[0].url} />
+                <div className="playlist__name">{data.name}</div>
+              </div>
+            );
           })}
         </div>
       </div>
