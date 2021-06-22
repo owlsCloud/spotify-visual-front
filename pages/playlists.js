@@ -1,5 +1,6 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
 import SideBar from "../componenets/SideBar/SideBar";
+import Image from "next/image";
 import PlaylistBox from "../componenets/PlaylistBox";
 const Playlists = () => {
   const globalState = useStateContext();
@@ -13,7 +14,12 @@ const Playlists = () => {
           {globalState.userPlaylists.items.map((playlist, i) => {
             return (
               <div className="playlist">
-                <img src={data.images[0].url} />
+                <Image
+                  src={data.images[0].url}
+                  width="150px"
+                  height="150px"
+                  alt=""
+                />
                 <div className="playlist__name">{data.name}</div>
               </div>
             );
