@@ -27,7 +27,7 @@ export function SpotifyProvider({ children }) {
   const [userRecentlyPlayedTracks, setUserRecentlyPlayedTracks] = useState([]);
   const login = (code) => {
     axios
-      .post(BUILD_SERVER + "login", {
+      .post(LOCAL_SERVER + "login", {
         code,
       })
       .then((res) => {
@@ -46,7 +46,7 @@ export function SpotifyProvider({ children }) {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(BUILD_SERVER + "refresh", {
+        .post(LOCAL_SERVER + "refresh", {
           refreshToken,
         })
         .then((res) => {

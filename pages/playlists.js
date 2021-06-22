@@ -1,6 +1,6 @@
 import { useStateContext } from "../componenets/SpotifyProvider";
 import SideBar from "../componenets/SideBar/SideBar";
-import ArtistBox from "../componenets/ArtistBox/ArtistBox";
+import PlaylistBox from "../componenets/PlaylistBox";
 const TopTracks = () => {
   const globalState = useStateContext();
   return (
@@ -10,12 +10,7 @@ const TopTracks = () => {
         <div className="toptracks__header"> Your Playlists</div>
         <div className="playlist__display">
           {globalState.userPlaylists.items.map((playlist, i) => {
-            return (
-              <div key={i} className="playlist">
-                <img src={playlist.images[0].url} />
-                <div className="playlist__name">{playlist.name}</div>
-              </div>
-            );
+            return <PlaylistBox key={i} playlist={playlist} />;
           })}
         </div>
       </div>
