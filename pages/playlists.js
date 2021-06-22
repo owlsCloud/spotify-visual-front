@@ -11,19 +11,21 @@ const Playlists = () => {
       <div className="toptracks">
         <div className="toptracks__header"> Your Playlists</div>
         <div className="playlist__display">
-          {globalState.userPlaylists.items.map((playlist, i) => {
-            return (
-              <div className="playlist" key={i}>
-                <Image
-                  src={data.images[0].url}
-                  width="150px"
-                  height="150px"
-                  alt=""
-                />
-                <div className="playlist__name">{data.name}</div>
-              </div>
-            );
-          })}
+          {globalState.userPlaylists.items
+            ? globalState.userPlaylists.items.map((playlist, i) => {
+                return (
+                  <div className="playlist" key={i}>
+                    <Image
+                      src={data.images[0].url}
+                      width="150px"
+                      height="150px"
+                      alt=""
+                    />
+                    <div className="playlist__name">{data.name}</div>
+                  </div>
+                );
+              })
+            : ""}
         </div>
       </div>
     </section>
