@@ -3,6 +3,7 @@ import SideBar from "../componenets/SideBar/SideBar";
 import PlaylistBox from "../componenets/PlaylistBox";
 const TopTracks = () => {
   const globalState = useStateContext();
+  console.log(globalState.userPlaylists.items);
   return (
     <section>
       <SideBar />
