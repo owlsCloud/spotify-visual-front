@@ -13,7 +13,7 @@ const Playlists = () => {
         <div className="playlist__display">
           {globalState.userPlaylists.items.map((playlist, i) => {
             return (
-              <div className="playlist">
+              <div className="playlist" key={i}>
                 <Image
                   src={data.images[0].url}
                   width="150px"
